@@ -48,7 +48,7 @@ class _CartPageState extends State<CartPage> {
                     icon: Icon(Icons.remove),
                     onPressed: () {
                       setState(() {
-                        Cart.removeQuantity(item.product, 1); // Уменьшение количества товара на 1
+                        Cart.removeQuantity(item.product, 1); 
                         calculateTotalCost();
                       });
                     },
@@ -58,7 +58,7 @@ class _CartPageState extends State<CartPage> {
                     icon: Icon(Icons.add),
                     onPressed: () {
                       setState(() {
-                        Cart.addItem(item.product); // Увеличение количества товара на 1
+                        Cart.addItem(item.product); 
                         calculateTotalCost();
                       });
                     },
@@ -86,13 +86,12 @@ class _CartPageState extends State<CartPage> {
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  // Удаление всех продуктов из корзины
                   Cart.clearCart();
                   calculateTotalCost();
                 });
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.red, // Цвет кнопки удаления всех продуктов
+                primary: Colors.red, 
               ),
               child: const Text('Удалить все', style: TextStyle(fontSize: 16)),
             ),
@@ -103,7 +102,7 @@ class _CartPageState extends State<CartPage> {
             
            ElevatedButton(
               onPressed: () {
-                // Создание заказа и добавление его в историю заказов
+                
                 final order = Order(items: widget.cartItems, date: DateTime.now());
                 PurchaseHistory.addOrder(order);
                 // Очистка корзины после оплаты
